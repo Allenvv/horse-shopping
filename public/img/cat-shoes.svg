@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+<defs><linearGradient id="g4" x1="0.883022221559489" y1="0.17860619515673026" x2="0.11697777844051105" y2="0.8213938048432697">
+<stop offset="0" stop-color="#E5E8EA"/><stop offset="1" stop-color="#C4CBD0"/>
+</linearGradient></defs>
+<rect width="400" height="400" fill="url(#g4)"/>
+<circle cx="330" cy="72" r="120" fill="#33414A" opacity="0.06"/>
+<g transform="translate(35.71428571428571 -56.28571428571432) scale(1.0952380952380953)"><path d="M44 278 L44 254 C44 236 62 228 84 224 L136 216 C158 212 172 202 186 188 C200 174 222 168 238 176 C256 186 262 210 262 242 L262 278 Z M32 274 L268 274 C276 280 274 300 266 300 L34 300 C26 300 24 280 32 274 Z" fill="#33414A"/><path d="M150 240 L176 208" fill="none" stroke="#E5E8EA" stroke-width="6" stroke-linecap="round" opacity="0.7"/><path d="M128 246 L152 216" fill="none" stroke="#E5E8EA" stroke-width="6" stroke-linecap="round" opacity="0.7"/><path d="M106 250 L128 224" fill="none" stroke="#E5E8EA" stroke-width="6" stroke-linecap="round" opacity="0.7"/><path d="M44 268 L262 268" fill="none" stroke="#E5E8EA" stroke-width="4" stroke-linecap="round" opacity="0.45"/></g>
+</svg>

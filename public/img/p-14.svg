@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img">
+<defs><linearGradient id="g13" x1="0.9698463103929542" y1="0.32898992833716556" x2="0.03015368960704584" y2="0.6710100716628344">
+<stop offset="0" stop-color="#E8E6E1"/><stop offset="1" stop-color="#CFCBC2"/>
+</linearGradient></defs>
+<rect width="600" height="800" fill="url(#g13)"/>
+<circle cx="300" cy="392" r="318" fill="#FFFFFF" opacity="0.42"/>
+<circle cx="300" cy="392" r="318" fill="none" stroke="#16130F" stroke-width="1" opacity="0.16"/>
+<g transform="translate(-15 -83) scale(2.1)"><path d="M92 110 L208 110 L214 190 L200 350 L156 350 L150 232 L144 350 L100 350 L86 190 Z" fill="#16130F"/><path d="M92 122 L208 122" fill="none" stroke="#E8E6E1" stroke-width="6" stroke-linecap="round" opacity="0.6"/><path d="M150 232 L150 128" fill="none" stroke="#E8E6E1" stroke-width="5" stroke-linecap="round" opacity="0.45"/><path d="M118 140 C120 180 118 230 114 290" fill="none" stroke="#E8E6E1" stroke-width="4" stroke-linecap="round" opacity="0.35"/><path d="M182 140 C180 180 182 230 186 290" fill="none" stroke="#E8E6E1" stroke-width="4" stroke-linecap="round" opacity="0.35"/></g>
+</svg>

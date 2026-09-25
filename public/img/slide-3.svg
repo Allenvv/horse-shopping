@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" width="1600" height="800" role="img" aria-label="LIMITED DROP">
+<defs>
+<linearGradient id="bg" x1="0.7499999999999999" y1="0.06698729810778065" x2="0.2500000000000001" y2="0.9330127018922194">
+<stop offset="0" stop-color="#EBE2EE"/><stop offset="1" stop-color="#D3C2D9"/>
+</linearGradient>
+<pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+<circle cx="1.4" cy="1.4" r="1.4" fill="#4A2E56" opacity="0.1"/>
+</pattern>
+<linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#EBE2EE" stop-opacity="0.96"/>
+<stop offset="0.6" stop-color="#EBE2EE" stop-opacity="0.7"/>
+<stop offset="1" stop-color="#EBE2EE" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<rect width="1600" height="800" fill="url(#bg)"/>
+<rect width="1600" height="800" fill="url(#dots)"/>
+<circle cx="847" cy="143" r="311" fill="#4A2E56" opacity="0.05"/><circle cx="1279" cy="278" r="303" fill="#4A2E56" opacity="0.05"/><circle cx="959" cy="661" r="176" fill="#4A2E56" opacity="0.05"/>
+<!-- 右侧几何框架，杂志感 -->
+<rect x="700" y="70" width="830" height="660" fill="none" stroke="#4A2E56" stroke-width="1.5" opacity="0.22"/>
+<rect x="742" y="112" width="746" height="576" fill="#FFFFFF" opacity="0.34"/>
+<g transform="translate(805.2678571428571 -78.39285714285714) scale(2.0982142857142856)"><path d="M118 116 C132 142 168 142 182 116 L196 124 L208 168 L196 196 L250 340 L50 340 L104 196 L92 168 Z" fill="#4A2E56"/><path d="M118 116 C132 142 168 142 182 116" fill="none" stroke="#EBE2EE" stroke-width="7" stroke-linecap="round" opacity="1"/><path d="M94 196 L206 196" fill="none" stroke="#EBE2EE" stroke-width="7" stroke-linecap="round" opacity="1"/><path d="M118 122 L118 340" fill="none" stroke="#EBE2EE" stroke-width="3" stroke-linecap="round" opacity="0.28"/><path d="M182 122 L182 340" fill="none" stroke="#EBE2EE" stroke-width="3" stroke-linecap="round" opacity="0.28"/></g>
+<!-- 左侧文字可读性蒙版（止于 780，不污染右侧单品） -->
+<rect width="780" height="800" fill="url(#scrim)"/>
+<text x="96" y="716" font-family="Helvetica,Arial,sans-serif" font-size="20" letter-spacing="7" fill="#4A2E56" opacity="0.6">LIMITED DROP</text>
+</svg>

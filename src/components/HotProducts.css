@@ -1,0 +1,158 @@
+/* ============================================================== 热门商品 */
+.hot {
+  background: var(--bg);
+}
+
+.hot__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 22px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hot__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  height: 38px;
+  padding: 0 18px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  transition: all 0.24s var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.chip.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.hot__sorts {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.sort {
+  padding: 6px 11px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.22s var(--ease), background 0.22s var(--ease);
+}
+
+.sort:hover {
+  color: var(--ink);
+  background: rgba(22, 19, 15, 0.05);
+}
+
+.sort.is-active {
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- 栅格 */
+.hot__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.hot__item {
+  animation: card-in 0.6s var(--ease) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hot__empty {
+  padding: 70px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.hot__more {
+  display: flex;
+  justify-content: center;
+  margin-top: 46px;
+}
+
+@media (max-width: 1080px) {
+  .hot__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .hot__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hot__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .hot__tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin: 0 calc(var(--gutter) * -1);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .hot__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip {
+    flex: none;
+    height: 34px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .hot__sorts {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .hot__sorts::-webkit-scrollbar {
+    display: none;
+  }
+}

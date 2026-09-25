@@ -1,0 +1,260 @@
+/* ================================================================ 页脚 */
+.footer {
+  background: var(--ink);
+  color: rgba(251, 250, 247, 0.72);
+  padding: 66px 0 34px;
+}
+
+.footer h2,
+.footer h3 {
+  color: var(--bg);
+}
+
+/* ------------------------------------------------------------ 顶部订阅 */
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: start;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(251, 250, 247, 0.14);
+}
+
+.footer__brand {
+  display: flex;
+  gap: 18px;
+}
+
+.footer__mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--r-md);
+  background: rgba(251, 250, 247, 0.08);
+}
+
+.footer__brand h2 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.footer__brand p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  max-width: 430px;
+}
+
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.subscribe label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--bg);
+}
+
+.subscribe__field {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding-left: 20px;
+  border-radius: var(--r-full);
+  background: rgba(251, 250, 247, 0.08);
+  border: 1px solid rgba(251, 250, 247, 0.16);
+  transition: border-color 0.26s var(--ease), background 0.26s var(--ease);
+}
+
+.subscribe__field:focus-within {
+  border-color: var(--accent);
+  background: rgba(251, 250, 247, 0.12);
+}
+
+.subscribe__field.is-done {
+  border-color: var(--moss);
+  background: rgba(47, 74, 52, 0.3);
+}
+
+.subscribe__field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--bg);
+  font-size: 14px;
+}
+
+.subscribe__field input::placeholder {
+  color: rgba(251, 250, 247, 0.42);
+}
+
+.subscribe__field button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  flex: none;
+  transition: background 0.24s var(--ease), transform 0.24s var(--ease);
+}
+
+.subscribe__field button:hover {
+  background: #fff;
+  color: var(--ink);
+  transform: scale(1.05);
+}
+
+.subscribe__hint {
+  font-size: 12px;
+  color: rgba(251, 250, 247, 0.45);
+}
+
+/* ------------------------------------------------------------ 链接主体 */
+.footer__main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 56px;
+  padding: 44px 0;
+  border-bottom: 1px solid rgba(251, 250, 247, 0.14);
+}
+
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.footer__col h3,
+.footer__contact h3 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer__col a {
+  font-size: 13.5px;
+  color: rgba(251, 250, 247, 0.66);
+  transition: color 0.22s var(--ease), padding-left 0.22s var(--ease);
+}
+
+.footer__col a:hover {
+  color: var(--accent);
+  padding-left: 5px;
+}
+
+.footer__phone {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--bg);
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+}
+
+.footer__time,
+.footer__mail {
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.footer__social-item {
+  padding: 6px 13px;
+  border-radius: var(--r-full);
+  border: 1px solid rgba(251, 250, 247, 0.2);
+  font-size: 12.5px;
+  transition: background 0.24s var(--ease), color 0.24s var(--ease),
+    border-color 0.24s var(--ease);
+}
+
+.footer__social-item:hover {
+  background: var(--bg);
+  border-color: var(--bg);
+  color: var(--ink);
+}
+
+/* -------------------------------------------------------------- 版权区 */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 26px;
+  font-size: 12.5px;
+  color: rgba(251, 250, 247, 0.45);
+}
+
+.footer__legal {
+  display: flex;
+  gap: 18px;
+}
+
+.footer__legal a:hover {
+  color: var(--bg);
+}
+
+.footer__made {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer__made svg {
+  color: var(--accent);
+}
+
+@media (max-width: 1080px) {
+  .footer__top,
+  .footer__main {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 720px) {
+  .footer {
+    padding: 48px 0 28px;
+  }
+
+  .footer__links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 18px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer__phone {
+    font-size: 22px;
+  }
+}

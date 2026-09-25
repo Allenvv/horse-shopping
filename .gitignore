@@ -1,0 +1,8 @@
+dist
+node_modules
+.pnpm
+.npm
+.dev
+.node
+
+pnpm-lock.yaml

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" width="1600" height="800" role="img" aria-label="STREET SELECTION">
+<defs>
+<linearGradient id="bg" x1="0.7499999999999999" y1="0.06698729810778065" x2="0.2500000000000001" y2="0.9330127018922194">
+<stop offset="0" stop-color="#E3EADF"/><stop offset="1" stop-color="#C6D5C0"/>
+</linearGradient>
+<pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+<circle cx="1.4" cy="1.4" r="1.4" fill="#2F4A34" opacity="0.1"/>
+</pattern>
+<linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#E3EADF" stop-opacity="0.96"/>
+<stop offset="0.6" stop-color="#E3EADF" stop-opacity="0.7"/>
+<stop offset="1" stop-color="#E3EADF" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<rect width="1600" height="800" fill="url(#bg)"/>
+<rect width="1600" height="800" fill="url(#dots)"/>
+<circle cx="1392" cy="518" r="300" fill="#2F4A34" opacity="0.05"/><circle cx="856" cy="282" r="175" fill="#2F4A34" opacity="0.05"/><circle cx="1170" cy="272" r="167" fill="#2F4A34" opacity="0.05"/>
+<!-- 右侧几何框架，杂志感 -->
+<rect x="700" y="70" width="830" height="660" fill="none" stroke="#2F4A34" stroke-width="1.5" opacity="0.22"/>
+<rect x="742" y="112" width="746" height="576" fill="#FFFFFF" opacity="0.34"/>
+<g transform="translate(813.4782608695652 -23.000000000000057) scale(2.0434782608695654)"><path d="M96 136 C100 92 200 92 204 136 L238 152 L262 272 L236 280 L222 186 L222 322 L78 322 L78 186 L64 280 L38 272 L62 152 Z" fill="#2F4A34"/><path d="M96 136 C100 92 200 92 204 136" fill="none" stroke="#E3EADF" stroke-width="8" stroke-linecap="round" opacity="1"/><path d="M118 140 C124 168 176 168 182 140" fill="none" stroke="#E3EADF" stroke-width="5" stroke-linecap="round" opacity="0.5"/><path d="M108 322 L192 322" fill="none" stroke="#E3EADF" stroke-width="6" stroke-linecap="round" opacity="0.4"/><path d="M118 244 L182 244 L182 296 L118 296 Z" fill="none" stroke="#E3EADF" stroke-width="5" stroke-linecap="round" opacity="0.35"/></g>
+<!-- 左侧文字可读性蒙版（止于 780，不污染右侧单品） -->
+<rect width="780" height="800" fill="url(#scrim)"/>
+<text x="96" y="716" font-family="Helvetica,Arial,sans-serif" font-size="20" letter-spacing="7" fill="#2F4A34" opacity="0.6">STREET SELECTION</text>
+</svg>

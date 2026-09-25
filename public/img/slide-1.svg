@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" width="1600" height="800" role="img" aria-label="AUTUMN / WINTER 26">
+<defs>
+<linearGradient id="bg" x1="0.7499999999999999" y1="0.06698729810778065" x2="0.2500000000000001" y2="0.9330127018922194">
+<stop offset="0" stop-color="#F3E7DC"/><stop offset="1" stop-color="#E4CDB9"/>
+</linearGradient>
+<pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+<circle cx="1.4" cy="1.4" r="1.4" fill="#7A4A2B" opacity="0.1"/>
+</pattern>
+<linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#F3E7DC" stop-opacity="0.96"/>
+<stop offset="0.6" stop-color="#F3E7DC" stop-opacity="0.7"/>
+<stop offset="1" stop-color="#F3E7DC" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<rect width="1600" height="800" fill="url(#bg)"/>
+<rect width="1600" height="800" fill="url(#dots)"/>
+<circle cx="1237" cy="334" r="287" fill="#7A4A2B" opacity="0.05"/><circle cx="1004" cy="338" r="256" fill="#7A4A2B" opacity="0.05"/><circle cx="1346" cy="514" r="136" fill="#7A4A2B" opacity="0.05"/>
+<!-- 右侧几何框架，杂志感 -->
+<rect x="700" y="70" width="830" height="660" fill="none" stroke="#7A4A2B" stroke-width="1.5" opacity="0.22"/>
+<rect x="742" y="112" width="746" height="576" fill="#FFFFFF" opacity="0.34"/>
+<g transform="translate(821.271186440678 -66.01694915254237) scale(1.9915254237288136)"><path d="M104 116 C118 140 182 140 196 116 L238 134 L262 258 L238 266 L222 178 L236 352 L64 352 L78 178 L62 266 L38 258 L62 134 Z" fill="#7A4A2B"/><path d="M104 116 C118 140 182 140 196 116" fill="none" stroke="#F3E7DC" stroke-width="7" stroke-linecap="round" opacity="1"/><path d="M150 156 L150 352" fill="none" stroke="#F3E7DC" stroke-width="6" stroke-linecap="round" opacity="1"/><path d="M104 120 L150 172 L196 120" fill="none" stroke="#F3E7DC" stroke-width="7" stroke-linecap="round" opacity="1"/><path d="M214 240 L186 240" fill="none" stroke="#F3E7DC" stroke-width="5" stroke-linecap="round" opacity="0.55"/><path d="M86 240 L114 240" fill="none" stroke="#F3E7DC" stroke-width="5" stroke-linecap="round" opacity="0.55"/></g>
+<!-- 左侧文字可读性蒙版（止于 780，不污染右侧单品） -->
+<rect width="780" height="800" fill="url(#scrim)"/>
+<text x="96" y="716" font-family="Helvetica,Arial,sans-serif" font-size="20" letter-spacing="7" fill="#7A4A2B" opacity="0.6">AUTUMN / WINTER 26</text>
+</svg>

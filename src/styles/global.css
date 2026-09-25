@@ -1,0 +1,362 @@
+/* ==========================================================================
+   潮野 CHAOYE · 全局样式与设计变量
+   浅色主题 / 杂志编辑风
+   ========================================================================== */
+
+:root {
+  /* 色板 */
+  --bg: #fbfaf7;
+  --bg-alt: #f4f1ea;
+  --surface: #ffffff;
+  --ink: #16130f;
+  --ink-2: #4a443c;
+  --muted: #8a8279;
+  --line: #e7e3db;
+  --line-strong: #d5cfc4;
+  --accent: #e8502f;
+  --accent-dark: #c93d1f;
+  --accent-soft: #fdece6;
+  --moss: #2f4a34;
+  --moss-soft: #e8efe6;
+
+  /* 圆角与阴影 */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-full: 999px;
+  --sh-sm: 0 1px 2px rgba(22, 19, 15, 0.04), 0 4px 14px rgba(22, 19, 15, 0.05);
+  --sh-md: 0 6px 24px rgba(22, 19, 15, 0.08);
+  --sh-lg: 0 22px 60px rgba(22, 19, 15, 0.14);
+
+  /* 布局 */
+  --container: 1280px;
+  --gutter: 28px;
+
+  /* 字体 */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Songti SC', 'STSong', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------------------------------------------------------------- reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ------------------------------------------------------------ 布局容器 */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: 84px 0;
+}
+
+.section--tight {
+  padding: 64px 0;
+}
+
+/* -------------------------------------------------------------- 区块头 */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.section-head__left {
+  max-width: 620px;
+}
+
+.section-head__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.section-head__eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1.5px;
+  background: var(--accent);
+}
+
+.section-head__title {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+
+.section-head__desc {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.section-head__action {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--ink);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease), gap 0.25s var(--ease);
+}
+
+.section-head__action:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  gap: 13px;
+}
+
+/* ---------------------------------------------------------------- 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  height: 50px;
+  padding: 0 30px;
+  border-radius: var(--r-full);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: transform 0.22s var(--ease), background 0.22s var(--ease),
+    color 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
+}
+
+.btn:active {
+  transform: scale(0.975);
+}
+
+.btn--primary {
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: var(--sh-sm);
+}
+
+.btn--primary:hover {
+  background: var(--accent);
+  box-shadow: 0 10px 26px rgba(232, 80, 47, 0.28);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  backdrop-filter: blur(6px);
+}
+
+.btn--ghost:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.btn--sm {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 13.5px;
+}
+
+/* ------------------------------------------------------------------ 徽标 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--accent);
+  color: #fff;
+}
+
+.tag--dark {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.tag--soft {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+/* ---------------------------------------------------------- 购物车提示 */
+.toast-layer {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 22px;
+  border-radius: var(--r-full);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--sh-lg);
+  animation: toast-in 0.36s var(--ease) both;
+}
+
+.toast__dot {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  flex: none;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ------------------------------------------------------------ 滚动动画 */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------- 响应式栅格 */
+@media (max-width: 900px) {
+  :root {
+    --gutter: 18px;
+  }
+  .section {
+    padding: 60px 0;
+  }
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
