@@ -9,6 +9,7 @@ node_modules
 .dev
 .node
 .workbuddy-ai
+.workbuddy-ai
 
 # 运行时数据：SQLite 数据库及 WAL 文件（用 npm run seed 重新生成）
 server/data/*.db
