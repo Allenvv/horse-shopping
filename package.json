@@ -1,20 +1,31 @@
 {
   "name": "chaoye-storefront",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
-  "description": "潮野 CHAOYE — 潮流服饰电商首页",
+  "description": "潮野 CHAOYE — 潮流服饰电商（React + Vite 前端 / Express + SQLite 后端）",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "seed": "node server/seed.js",
+    "seed:fresh": "node server/seed.js --fresh",
+    "server": "node server/index.js",
+    "assets": "node tools/gen-assets.mjs",
+    "verify": "node server/verify.mjs",
+    "dev": "vite --mode site",
+    "dev:h5": "vite --mode h5",
+    "dev:app": "vite --mode app",
+    "build": "npm run build:site",
+    "build:site": "vite build --mode site",
+    "build:h5": "vite build --mode h5",
+    "build:app": "vite build --mode app",
+    "serve": "NODE_ENV=production node server/index.js"
   },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "qrcode": "^1.5.4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",

@@ -1,0 +1,523 @@
+/* ================================================== 结算弹层 / 支付弹层 */
+.checkout-sheet {
+  padding: 0 0 calc(20px + env(safe-area-inset-bottom, 0px));
+  max-height: 92vh;
+}
+
+.checkout-sheet__head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.checkout-sheet__head h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.checkout-sheet__head .sheet__close {
+  position: static;
+}
+
+.checkout-block {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.checkout-block:last-of-type {
+  border-bottom: none;
+}
+
+.checkout-block h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  margin-bottom: 13px;
+}
+
+/* ------------------------------------------------------------ 表单 */
+.checkout-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checkout-form__full {
+  grid-column: 1 / -1;
+}
+
+.checkout-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.checkout-form span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.checkout-form input {
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.checkout-form input:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(22, 19, 15, 0.06);
+}
+
+.checkout-form input::placeholder {
+  color: #b3aca2;
+}
+
+/* ------------------------------------------------------------ 明细 */
+.checkout-hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.checkout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkout-items li {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 13px;
+  align-items: center;
+}
+
+.checkout-items img {
+  width: 60px;
+  height: 74px;
+  border-radius: var(--r-sm);
+  object-fit: cover;
+  background: var(--bg-alt);
+}
+
+.checkout-items__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.checkout-items__sku {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.checkout-items__price {
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.checkout-warn {
+  margin-top: 13px;
+  padding: 9px 12px;
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 12.5px;
+}
+
+/* ------------------------------------------------------------ 优惠券 */
+.checkout-coupons {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.coupon-pick {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  text-align: left;
+  transition: all 0.22s var(--ease);
+}
+
+.coupon-pick:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+
+.coupon-pick.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.coupon-pick.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.coupon-pick__amt {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  flex: none;
+}
+
+.coupon-pick__amt i {
+  font-style: normal;
+  font-size: 12px;
+  margin-right: 1px;
+}
+
+.coupon-pick__txt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.coupon-pick__txt em {
+  font-style: normal;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------ 金额与提交 */
+.checkout-block--sums {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.checkout-sum {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.checkout-sum__free {
+  font-style: normal;
+  color: var(--moss);
+  font-weight: 600;
+}
+
+.checkout-sum__off {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.checkout-error {
+  margin: 0 22px 12px;
+  padding: 10px 13px;
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 13px;
+}
+
+.checkout-sheet__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.checkout-sheet__payable {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.checkout-sheet__payable b {
+  font-size: 27px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.checkout-sheet__submit {
+  min-width: 168px;
+}
+
+/* ====================================================== 支付弹层 */
+.pay-sheet {
+  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+}
+
+.pay-sheet__head h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.pay-sheet__no {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.pay-amount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  padding: 26px 22px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pay-amount span {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.pay-amount b {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------ 渠道 */
+.pay-channels {
+  padding: 16px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pay-channel {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  text-align: left;
+  transition: all 0.22s var(--ease);
+}
+
+.pay-channel.is-active {
+  border-color: var(--ink);
+  background: rgba(22, 19, 15, 0.03);
+}
+
+.pay-channel__logo {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  flex: none;
+}
+
+.pay-channel__logo--wechat {
+  background: #07c160;
+}
+
+.pay-channel__logo--alipay {
+  background: #1677ff;
+}
+
+.pay-channel__txt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.pay-channel__txt em {
+  font-style: normal;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.pay-channel__tag {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--bg-alt);
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.pay-channel__radio {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  flex: none;
+  transition: all 0.2s var(--ease);
+}
+
+.pay-channel__radio.is-on {
+  border-color: var(--accent);
+  background: radial-gradient(circle, var(--accent) 0 40%, transparent 42%);
+}
+
+/* ------------------------------------------------------------ 二维码 */
+.pay-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding: 24px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pay-qr img {
+  width: 208px;
+  height: 208px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  padding: 8px;
+  background: #fff;
+}
+
+.pay-qr__hint {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.pay-qr__status {
+  font-size: 12.5px;
+  color: var(--muted);
+  min-height: 18px;
+}
+
+/* ------------------------------------------------------------ 沙箱 */
+.pay-sandbox {
+  padding: 15px 22px;
+  margin: 0;
+  background: var(--bg-alt);
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+
+.pay-sandbox p {
+  margin: 0;
+  margin-bottom: 11px;
+}
+
+.pay-sheet__go {
+  width: calc(100% - 44px);
+  margin: 22px;
+}
+
+.pay-tip {
+  padding: 0 22px;
+  font-size: 11.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------ 成功态 */
+.pay-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding: 34px 26px 26px;
+  text-align: center;
+}
+
+.pay-success__icon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--moss-soft);
+  color: var(--moss);
+  animation: pay-pop 0.5s var(--ease) both;
+}
+
+@keyframes pay-pop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.pay-success h4 {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.pay-success__amount {
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pay-success__hint {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 320px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 560px) {
+  .checkout-sheet__head,
+  .checkout-block,
+  .checkout-sheet__foot,
+  .pay-channels,
+  .pay-sandbox {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .checkout-sheet__foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .checkout-sheet__submit {
+    width: 100%;
+  }
+
+  .pay-amount b {
+    font-size: 29px;
+  }
+}

@@ -1,8 +1,22 @@
 dist
+dist-site/
+dist-h5/
+dist-app/
+
 node_modules
 .pnpm
 .npm
 .dev
 .node
+
+# 运行时数据：SQLite 数据库及 WAL 文件（用 npm run seed 重新生成）
+server/data/*.db
+server/data/*.db-wal
+server/data/*.db-shm
+
+# 编辑器 / 系统
+.DS_Store
+*.log
+.vite/
 
 pnpm-lock.yaml

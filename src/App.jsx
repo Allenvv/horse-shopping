@@ -1,137 +1,92 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import Header from './components/Header'
-import HeroCarousel from './components/HeroCarousel'
-import GuaranteeBar from './components/GuaranteeBar'
-import CategorySection from './components/CategorySection'
-import HotProducts from './components/HotProducts'
-import PromoSection from './components/PromoSection'
-import Footer from './components/Footer'
-import CartDrawer from './components/CartDrawer'
-import { IconCheck } from './components/Icons'
+import { useEffect } from 'react'
+import { HashRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
-/** 滚动进入视口时给 .reveal 元素加上 is-visible */
-function useRevealOnScroll() {
+import Header from './components/Header'
+import Footer from './components/Footer'
+import MobileTabBar from './components/MobileTabBar'
+import ErrorBoundary from './components/ErrorBoundary'
+import ToastLayer from './components/Toast'
+import SkuPicker from './components/SkuPicker'
+import CheckoutSheet from './components/CheckoutSheet'
+import PaymentSheet from './components/PaymentSheet'
+
+import HomePage from './pages/HomePage'
+import ListPage from './pages/ListPage'
+import DetailPage from './pages/DetailPage'
+import CartPage from './pages/CartPage'
+import OrdersPage from './pages/OrdersPage'
+import OrderDetailPage from './pages/OrderDetailPage'
+import CouponsPage from './pages/CouponsPage'
+import MinePage from './pages/MinePage'
+import NotFoundPage from './pages/NotFoundPage'
+
+import { AppStoreProvider, useStore } from './store/AppStore'
+import { initTokenFromHost } from './api/client'
+import { usePlatform } from './platform/host'
+
+/** 路由切换回到顶部（否则从长列表进详情会停在半空） */
+function ScrollToTop() {
+  const { pathname, search } = useLocation()
   useEffect(() => {
-    const nodes = document.querySelectorAll('.reveal')
-    if (!('IntersectionObserver' in window)) {
-      nodes.forEach((n) => n.classList.add('is-visible'))
-      return undefined
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            io.unobserve(entry.target)
-          }
-        })
-      },
-      { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
-    )
-    nodes.forEach((n) => io.observe(n))
-    return () => io.disconnect()
-  }, [])
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [pathname, search])
+  return null
 }
 
-export default function App() {
-  const [cart, setCart] = useState([])
-  const [cartOpen, setCartOpen] = useState(false)
-  const [toasts, setToasts] = useState([])
-  const toastId = useRef(0)
+function Shell() {
+  const { refreshCart } = useStore()
+  const platform = usePlatform()
 
-  useRevealOnScroll()
-
-  const pushToast = useCallback((text) => {
-    const id = (toastId.current += 1)
-    setToasts((prev) => [...prev, { id, text }])
-    window.setTimeout(() => {
-      setToasts((prev) => prev.filter((t) => t.id !== id))
-    }, 2400)
-  }, [])
-
-  /** 加入购物车：同商品同配色合并数量 */
-  const addToCart = useCallback(
-    (product, color) => {
-      const key = `${product.id}-${color}`
-      setCart((prev) => {
-        const hit = prev.find((it) => it.key === key)
-        if (hit) {
-          return prev.map((it) => (it.key === key ? { ...it, qty: it.qty + 1 } : it))
-        }
-        return [
-          ...prev,
-          {
-            key,
-            id: product.id,
-            title: product.title,
-            price: product.price,
-            image: product.image,
-            color,
-            qty: 1,
-          },
-        ]
-      })
-      pushToast(`已加入购物车 · ${product.title}`)
-    },
-    [pushToast]
-  )
-
-  const changeQty = useCallback((key, qty) => {
-    setCart((prev) =>
-      qty <= 0
-        ? prev.filter((it) => it.key !== key)
-        : prev.map((it) => (it.key === key ? { ...it, qty } : it))
-    )
-  }, [])
-
-  const removeItem = useCallback((key) => {
-    setCart((prev) => prev.filter((it) => it.key !== key))
-  }, [])
-
-  const cartCount = cart.reduce((n, it) => n + it.qty, 0)
+  useEffect(() => {
+    initTokenFromHost()
+    refreshCart()
+    platform.notifyHost('ready', { platform: platform.target })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refreshCart])
 
   return (
     <>
-      <Header cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
+      {platform.showChrome && <Header />}
 
-      <main>
-        <HeroCarousel />
-
-        <GuaranteeBar />
-
-        <div className="reveal">
-          <CategorySection />
-        </div>
-
-        <div className="reveal">
-          <HotProducts onAddToCart={addToCart} />
-        </div>
-
-        <div className="reveal">
-          <PromoSection onAddToCart={addToCart} />
-        </div>
+      <main className={platform.showTabBar ? 'main--with-tabbar' : ''}>
+        <ErrorBoundary label="页面">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/list" element={<ListPage />} />
+            <Route path="/product/:id" element={<DetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/orders" element={<OrdersPage />} />
+            <Route path="/order/:orderNo" element={<OrderDetailPage />} />
+            <Route path="/coupons" element={<CouponsPage />} />
+            <Route path="/mine" element={<MinePage />} />
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
+          </Routes>
+        </ErrorBoundary>
       </main>
 
-      <Footer />
+      {platform.showChrome && <Footer />}
+      {platform.showTabBar && <MobileTabBar />}
 
-      <CartDrawer
-        open={cartOpen}
-        items={cart}
-        onClose={() => setCartOpen(false)}
-        onChangeQty={changeQty}
-        onRemove={removeItem}
-      />
-
-      <div className="toast-layer" role="status" aria-live="polite">
-        {toasts.map((t) => (
-          <div className="toast" key={t.id}>
-            <span className="toast__dot">
-              <IconCheck size={12} />
-            </span>
-            {t.text}
-          </div>
-        ))}
-      </div>
+      {/* 全局弹层：任何页面都能唤起 */}
+      <SkuPicker />
+      <CheckoutSheet />
+      <PaymentSheet />
+      <ToastLayer />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    // 用 HashRouter 而非 BrowserRouter：
+    // 内嵌 App 常以 file:// 或任意子路径加载，Hash 路由不需要服务端重写规则，
+    // 一套产物可以同时跑在官网、H5 与壳应用里。
+    <HashRouter>
+      <AppStoreProvider>
+        <ScrollToTop />
+        <Shell />
+      </AppStoreProvider>
+    </HashRouter>
   )
 }

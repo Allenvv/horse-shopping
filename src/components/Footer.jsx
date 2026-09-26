@@ -1,7 +1,22 @@
 import { useState } from 'react'
-import { FOOTER_LINKS } from '../data/catalog'
 import { IconArrowRight, IconCheck, IconHeart } from './Icons'
 import './Footer.css'
+
+/** 页脚链接（静态内容，接入 CMS 后可改为接口下发） */
+const FOOTER_LINKS = [
+  {
+    title: '购物指南',
+    links: ['购物流程', '尺码对照表', '支付方式', '发票说明', '常见问题'],
+  },
+  {
+    title: '配送与售后',
+    links: ['配送范围与时效', '7 天无理由退货', '换货流程', '订单查询', '联系客服'],
+  },
+  {
+    title: '关于潮野',
+    links: ['品牌故事', '门店地址', '加入我们', '供应商合作', '媒体报道'],
+  },
+]
 
 export default function Footer() {
   const [email, setEmail] = useState('')

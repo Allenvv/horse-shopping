@@ -308,6 +308,24 @@ input {
   flex: none;
 }
 
+.toast--error {
+  background: #7c3038;
+}
+
+.toast--error .toast__dot {
+  background: #c96a72;
+}
+
+/* 给底部 TabBar 留出空间，避免内容被遮挡 */
+.main--with-tabbar {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+}
+
+/* 底部弹层里 Toast 需要再抬一层，避免被弹层盖住 */
+.toast-layer {
+  z-index: 400;
+}
+
 @keyframes toast-in {
   from {
     opacity: 0;
@@ -317,6 +335,30 @@ input {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+/* -------------------------------------------------------- 错误边界兜底 */
+.boundary-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 46px 24px;
+  max-width: var(--container);
+  text-align: center;
+}
+
+.boundary-fallback__title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.boundary-fallback__msg {
+  font-size: 12.5px;
+  color: var(--muted);
+  max-width: 460px;
 }
 
 /* ------------------------------------------------------------ 滚动动画 */

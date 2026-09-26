@@ -146,6 +146,30 @@ CREATE TABLE IF NOT EXISTS cart_items (
   UNIQUE(cart_id, sku_id)
 );
 
+CREATE TABLE IF NOT EXISTS user_coupons (
+  id            INTEGER PRIMARY KEY,
+  token         TEXT NOT NULL,                  -- 匿名用户令牌（后续可换成 user_id）
+  coupon_id     INTEGER NOT NULL REFERENCES coupons(id),
+  status        TEXT NOT NULL DEFAULT 'unused', -- unused / used / expired
+  used_order_id INTEGER REFERENCES orders(id),
+  created_at    TEXT NOT NULL,
+  UNIQUE(token, coupon_id)
+);
+
+CREATE TABLE IF NOT EXISTS addresses (
+  id         INTEGER PRIMARY KEY,
+  token      TEXT NOT NULL,
+  receiver   TEXT NOT NULL,
+  phone      TEXT NOT NULL,
+  province   TEXT NOT NULL DEFAULT '',
+  city       TEXT NOT NULL DEFAULT '',
+  district   TEXT NOT NULL DEFAULT '',
+  detail     TEXT NOT NULL,
+  is_default INTEGER NOT NULL DEFAULT 0,
+  tag        TEXT,
+  created_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS orders (
   id            INTEGER PRIMARY KEY,
   order_no      TEXT NOT NULL UNIQUE,          -- 业务订单号

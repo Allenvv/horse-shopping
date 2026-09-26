@@ -20,7 +20,7 @@
 /* ---------------------------------------------------------------- 图片区 */
 .pcard__media {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
   background: var(--bg-alt);
 }

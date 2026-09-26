@@ -1,0 +1,78 @@
+/* ================================================== 骨架屏 / 错误 / 空态 */
+.skel-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 0 16px 18px;
+}
+
+.skel {
+  background: linear-gradient(90deg, #f0ede6 25%, #f7f5f0 50%, #f0ede6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.skel--media {
+  aspect-ratio: 3 / 4;
+  margin: 0 -16px 14px;
+  border-radius: var(--r-md) var(--r-md) 0 0;
+}
+
+.skel--line {
+  height: 13px;
+  margin-bottom: 10px;
+}
+
+.w70 { width: 70%; }
+.w45 { width: 45%; }
+.w30 { width: 30%; }
+
+/* -------------------------------------------------------------- 状态块 */
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 76px 24px;
+  text-align: center;
+}
+
+.state--compact {
+  padding: 34px 20px;
+}
+
+.state__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.state__icon--muted {
+  background: var(--bg-alt);
+  color: var(--muted);
+}
+
+.state__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.state__hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: -6px;
+}
