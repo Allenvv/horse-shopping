@@ -8,6 +8,7 @@ node_modules
 .npm
 .dev
 .node
+.workbuddy-ai
 
 # 运行时数据：SQLite 数据库及 WAL 文件（用 npm run seed 重新生成）
 server/data/*.db
@@ -20,3 +21,6 @@ server/data/*.db-shm
 .vite/
 
 pnpm-lock.yaml
+
+# Vite 生成配置时的临时文件
+vite.config.js.timestamp-*.mjs
